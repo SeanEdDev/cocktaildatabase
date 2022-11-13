@@ -1,0 +1,209 @@
+body {
+    background-image: URL("attributes/bar-08.jpg");
+    font-family: 'Charm', cursive;
+    font-family: 'Pacifico', cursive;
+}
+
+#searchButton {
+    justify-content: center;
+    margin-top:0px;
+    margin-bottom:20px;
+    background-color: rgba(154, 82, 0, 0.477);
+    font-weight: bolder;
+}
+.flex-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:990px) {
+    .cardHolder { flex-wrap: wrap;  }
+    .item:first-child { flex-basis: 100%; }
+  }
+
+.welcomeBar {
+    color:white;
+    font-size: largers;
+    display:flex;
+    padding-bottom: 0;
+    margin-bottom:0;
+    height:fit-content;
+    width:fit-content;
+    background-color: rgba(0, 98, 255, 0);
+    margin:30px;
+}
+.searchBar {
+    display:flex;
+    font-weight: bolder;
+    height:20px;
+    width:200px;
+    background-color: rgba(125, 67, 0, 0.537);
+    color:rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: 5px;
+}
+.cardHolder {
+    flex-wrap:wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items:center;
+
+    height:fit-content;
+    width:fit-content;
+    background-color: rgba(255, 0, 0, 0);
+    margin:10px;
+}
+
+
+.drinkCard { 
+    border-radius: 20px;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    height:fit-content;
+    width:300px;
+    background-color: rgba(0, 80, 150, 0.63);
+    margin:10px;
+}
+
+#drinkCard1 {
+    display:none;
+    
+}
+#drinkCard2 {
+    display:none;
+}
+#drinkCard3 {
+    display:none;
+}
+#drinkCard4 {
+    display:none;
+}
+
+#cardName1 {
+    text-align: center;
+    font-size: 20px;
+    height:fit-content;
+    margin:10px;
+    background-color: rgba(128, 128, 128, 0);
+    
+}
+
+#cardName2 {
+    text-align: center;
+    font-size: 20px;
+    height:fit-content;
+    margin:10px;
+    background-color: rgba(128, 128, 128, 0);
+    
+}
+
+#cardName3 {
+    text-align: center;
+    font-size: 20px;
+    height:fit-content;
+    margin:10px;
+    background-color: rgba(128, 128, 128, 0);
+    
+}
+
+#cardName4 {
+    text-align: center;
+    font-size: 20px;
+    height:fit-content;
+    margin:10px;
+    background-color: rgba(128, 128, 128, 0);
+    
+}
+#cardPic1 {
+   
+    border-radius:px;
+    background-image: "";
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(128, 128, 128, 0);
+    margin:10px;
+    height:140px;
+   
+   
+    
+}
+
+#cardPic2 {
+    
+    border-radius:px;
+    background-image: "";
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(128, 128, 128, 0);
+    margin:10px;
+    height:140px;
+}
+
+#cardPic3 {
+   
+    border-radius:px;
+    background-image: "";
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(128, 128, 128, 0);
+    margin:10px;
+    height:140px;
+}
+
+#cardPic4 {
+   
+    border-radius:px;
+    background-image: "";
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(128, 128, 128, 0);
+    margin:10px;
+    height:140px;
+}
+
+.cardPic:hover {
+    transition: 1s;
+    transform: scale(1.5);
+    transform-origin: center;
+}
+.cardBottom {
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(128, 128, 128, 0);
+    margin:10px;
+    height:400px;
+    
+}
+
+.cardIngred {
+    padding-top:10px;
+    width:100%;
+    height:10%;
+    background-color: rgba(0, 133, 222, 0);
+    color:white(19, 3, 3);
+    font-weight:10;
+    font-size:100%;
+    font-size: smaller;
+    text-align: center;
+}
+
+.cardInstruct {
+    text-align: center;
+    margin:0;
+    
+    color:white;
+    width: 100%;
+    height:200px;
+    background-color:rgba(0, 133, 222, 0);
+    
+}
