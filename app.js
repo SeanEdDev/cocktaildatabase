@@ -112,7 +112,7 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+ userInput)
                                     document.getElementById("cardPic4").style.backgroundImage = "URL(" + drink.strDrinkThumb + ")"
                                     document.getElementById("cardName4").innerHTML = drink.strDrink
                                     document.getElementById("cardInstruct4").insertAdjacentHTML('beforeend',drink.strInstructions );
-                                    document.getElementById("cardIngred1").insertAdjacentHTML('beforeend',drink.strIngredient1);
+                                    document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',drink.strIngredient1);
                                     if (drink.strMeasure1) {
                                         document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',"-" + drink.strMeasure1 + "<br>");    
                                     }
