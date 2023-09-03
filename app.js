@@ -1,139 +1,165 @@
 
+function newSearch(){
+  location.reload();
+}
+
+
+document.addEventListener('click', (e) =>
+  {
+    
+    let elementId = e.target.id;
+    var openText = document.getElementById(elementId + "inner");
+    console.log(elementId );
+    console.log(openText);
+    if (openText.style.display != "flex") {
+        
+        openText.style.display = "flex";   
+       
+    }
+   else  if (openText.style.display == "flex" ){ 
+    var openText = document.getElementById(elementId + "inner");
+    openText.style.display = "none";
+    
+    }
+  }
+);
+
+
+
 
 
 
 function getcockbyName() {
 var userInput = document.getElementById("userInput").value;
-var counter = 1
-fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+ userInput)
+
+
+fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + userInput)
       .then(res => res.json())
       .then(data => {
         drink = data;
-      })
-      .then(() => {
-        document.getElementById("drinkCard1").style.display = "none";
-        document.getElementById("drinkCard2").style.display = "none";
-        document.getElementById("drinkCard3").style.display = "none";
-        document.getElementById("drinkCard4").style.display = "none";
-        document.getElementById("cardIngred1").innerHTML = ""
-        document.getElementById("cardIngred2").innerHTML = ""
-        document.getElementById("cardIngred3").innerHTML = ""
-        document.getElementById("cardIngred4").innerHTML = ""
-        document.getElementById("cardInstruct1").innerHTML = ""
-        document.getElementById("cardInstruct2").innerHTML = ""
-        document.getElementById("cardInstruct3").innerHTML = ""
-        document.getElementById("cardInstruct4").innerHTML = ""
-        counter = 1
+        
+        console.log(drink.drinks);
+        var json_data = drink.drinks;
+        var result = [];
+        
+        for(var i in json_data)
+        result.push([i, json_data [i]]);
+        
+        
+        let obj = Object.fromEntries(result);
+        
+        Object.keys(obj).forEach(key => {
+            if (obj[key] === null) {
+              delete obj[key];
+            }
+          });
 
-        drink.drinks.forEach(drink => {
-            
-            
-            console.log(drink)
-            if (counter === 1) {
-                document.getElementById("drinkCard1").style.display = "flex"
-                document.getElementById("cardPic1").style.backgroundImage = "URL(" + drink.strDrinkThumb + ")"
-                document.getElementById("cardName1").innerHTML = drink.strDrink
-                document.getElementById("cardInstruct1").insertAdjacentHTML('beforeend',drink.strInstructions );
+          console.log(obj)
+          
+        for (let step = 0; step < result.length; step++) {
 
-                    document.getElementById("cardIngred1").insertAdjacentHTML('beforeend',drink.strIngredient1);
-                if (drink.strMeasure1) {
-                    document.getElementById("cardIngred1").insertAdjacentHTML('beforeend',"-" + drink.strMeasure1 + "<br>");    
-                }
-                    document.getElementById("cardIngred1").insertAdjacentHTML('beforeend',drink.strIngredient2);
-                if (drink.strMeasure2) {
-                    document.getElementById("cardIngred1").insertAdjacentHTML('beforeend',"-" + drink.strMeasure2 + "<br>");    
-                }
-                    document.getElementById("cardIngred1").insertAdjacentHTML('beforeend',drink.strIngredient3);
-                if (drink.strMeasure3) {
-                    document.getElementById("cardIngred1").insertAdjacentHTML('beforeend',"-" + drink.strMeasure3 + "<br>");    
-                }
-                    document.getElementById("cardIngred1").insertAdjacentHTML('beforeend',drink.strIngredient4);
-                if (drink.strMeasure4) {
-                    document.getElementById("cardIngred1").insertAdjacentHTML('beforeend',"-" + drink.strMeasure4 + "<br>");    
-                } else {
-                                    
-                }
+
+                drinkName = (obj[step].strDrink);
+                drinkPic = (obj[step].strDrinkThumb);
+                drinkInstruct = (obj[step].strInstructions);
+        for  (let count = 0; count< 9; count++) {  
+            drinkIngredients = []
+            if (obj[step].strMeasure1) {
+
+                var pushValue = obj[step].strMeasure1 + obj[step].strIngredient1 +"\n"
+                drinkIngredients.push(pushValue);
+                
+            }
+                
+            if (obj[step].strMeasure2) {
+                var pushValue = obj[step].strMeasure2 + obj[step].strIngredient2 +"\n"
+                drinkIngredients.push(pushValue);
+            }
+               
+            if (obj[step].strMeasure3) {
+                var pushValue = obj[step].strMeasure3 + obj[step].strIngredient3 +"\n"
+                drinkIngredients.push(pushValue);
+            }
+                
+            if (obj[step].strMeasure4) {
+                var pushValue = obj[step].strMeasure4 + obj[step].strIngredient4 +"\n"
+                drinkIngredients.push(pushValue);
+                                
+            }
+            if (obj[step].strMeasure5) {
+                var pushValue = obj[step].strMeasure5+ obj[step].strIngredient5+"\n"
+                drinkIngredients.push(pushValue);
+                                
+            }
+            if (obj[step].strMeasure6) {
+                var pushValue = obj[step].strMeasure6 + obj[step].strIngredient6 +"\n"
+                drinkIngredients.push(pushValue);
+                                
+            }
+            if (obj[step].strMeasure6) {
+                var pushValue = obj[step].strMeasure7 + obj[step].strIngredient7 +"\n"
+                drinkIngredients.push(pushValue);
+                                
+            }
+            if (obj[step].strMeasure6) {
+                var pushValue = obj[step].strMeasure8 + obj[step].strIngredient8 +"\n"
+                drinkIngredients.push(pushValue);
+                                
+            }
+            if (obj[step].strMeasure6) {
+                var pushValue = obj[step].strMeasure9 + obj[step].strIngredient9 +"\n"
+                drinkIngredients.push(pushValue);
+                                
+            }
+
+             }
+                
+         
+               
+                
+               
+                // create a new div element
+                const newDiv = document.createElement("div");
+                newDiv.setAttribute("id", "Div"+ step);
+                newDiv.setAttribute("class","drinkCard");
+                newDiv.setAttribute("openClose", 0);
+                // and give it some content
+                const newName = document.createTextNode(drinkName);
+                const newPicture = document.createElement("img");
+                newPicture.setAttribute("src",drinkPic);
+               
+
+                //make inner div
+                const innerDiv = document.createElement("div");
+                innerDiv.setAttribute("class","drinkInstruct");
+                innerDiv.setAttribute("id","Div"+ step + "inner");
+                const innerDiv2 = document.createElement("div");
+                innerDiv2.setAttribute("class","drinkIngredMes");
+                innerDiv2.setAttribute("id","Div"+ step + "ingredMes");
+                
+                const newInstructions = document.createTextNode(drinkInstruct)
+                const newIngredMesure = document.createTextNode(drinkIngredients)
                 
 
-                   } else if (counter === 2) { 
-                        document.getElementById("drinkCard2").style.display = "flex"
-                        document.getElementById("cardPic2").style.backgroundImage = "URL(" + drink.strDrinkThumb + ")"
-                        document.getElementById("cardName2").innerHTML = drink.strDrink
-                        document.getElementById("cardInstruct2").insertAdjacentHTML('beforeend',drink.strInstructions );
-                       
-                        document.getElementById("cardIngred2").insertAdjacentHTML('beforeend',drink.strIngredient1);
-                        if (drink.strMeasure1) {
-                            document.getElementById("cardIngred2").insertAdjacentHTML('beforeend',"-" + drink.strMeasure1 + "<br>");    
-                        }
-                            document.getElementById("cardIngred2").insertAdjacentHTML('beforeend',drink.strIngredient2);
-                        if (drink.strMeasure2) {
-                            document.getElementById("cardIngred2").insertAdjacentHTML('beforeend',"-" + drink.strMeasure2 + "<br>");    
-                        }
-                            document.getElementById("cardIngred2").insertAdjacentHTML('beforeend',drink.strIngredient3);
-                        if (drink.strMeasure3) {
-                            document.getElementById("cardIngred2").insertAdjacentHTML('beforeend',"-" + drink.strMeasure3 + "<br>");    
-                        }
-                            document.getElementById("cardIngred2").insertAdjacentHTML('beforeend',drink.strIngredient4);
-                        if (drink.strMeasure4) {
-                            document.getElementById("cardIngred2").insertAdjacentHTML('beforeend',"-" + drink.strMeasure4 + "<br>");    
-                        } else {
-                                    
-                        }
 
-                    }  
-                            else if (counter === 3) { 
-                                document.getElementById("drinkCard3").style.display = "flex"
-                                document.getElementById("cardPic3").style.backgroundImage = "URL(" + drink.strDrinkThumb + ")"
-                                document.getElementById("cardName3").innerHTML = drink.strDrink 
-                                document.getElementById("cardInstruct3").insertAdjacentHTML('beforeend',drink.strInstructions );
-                              
-                                document.getElementById("cardIngred3").insertAdjacentHTML('beforeend',drink.strIngredient1);
-                                if (drink.strMeasure1) {
-                                    document.getElementById("cardIngred3").insertAdjacentHTML('beforeend',"-" + drink.strMeasure1 + "<br>");    
-                                }
-                                    document.getElementById("cardIngred3").insertAdjacentHTML('beforeend',drink.strIngredient2);
-                                if (drink.strMeasure2) {
-                                    document.getElementById("cardIngred3").insertAdjacentHTML('beforeend',"-" + drink.strMeasure2 + "<br>");    
-                                }
-                                    document.getElementById("cardIngred3").insertAdjacentHTML('beforeend',drink.strIngredient3);
-                                if (drink.strMeasure3) {
-                                    document.getElementById("cardIngred3").insertAdjacentHTML('beforeend',"-" + drink.strMeasure3 + "<br>");    
-                                }
-                                    document.getElementById("cardIngred3").insertAdjacentHTML('beforeend',drink.strIngredient4);
-                                if (drink.strMeasure4) {
-                                    document.getElementById("cardIngred3").insertAdjacentHTML('beforeend',"-" + drink.strMeasure4 + "<br>");    
-                                } else {
+                // add the text node to the newly created div
+                newDiv.appendChild(newName);
+                newDiv.appendChild(newPicture);
+                innerDiv.appendChild(newInstructions);;
+                innerDiv2.appendChild(newIngredMesure)
+                
+                // select div i will append to
+                cardContainer = document.getElementById("cardContainer");
+                // add the newly created element and its content into the DOM
+                const currentDiv = document.getElementById("div");
 
-                                }
-
-                            }
-                                else if (counter === 4) { 
-                                    document.getElementById("drinkCard4").style.display = "flex"
-                                    document.getElementById("cardPic4").style.backgroundImage = "URL(" + drink.strDrinkThumb + ")"
-                                    document.getElementById("cardName4").innerHTML = drink.strDrink
-                                    document.getElementById("cardInstruct4").insertAdjacentHTML('beforeend',drink.strInstructions );
-                                    document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',drink.strIngredient1);
-                                    if (drink.strMeasure1) {
-                                        document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',"-" + drink.strMeasure1 + "<br>");    
-                                    }
-                                        document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',drink.strIngredient2);
-                                    if (drink.strMeasure2) {
-                                        document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',"-" + drink.strMeasure2 + "<br>");    
-                                    }
-                                        document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',drink.strIngredient3);
-                                    if (drink.strMeasure3) {
-                                        document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',"-" + drink.strMeasure3 + "<br>");    
-                                    }
-                                        document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',drink.strIngredient4);
-                                    if (drink.strMeasure4) {
-                                        document.getElementById("cardIngred4").insertAdjacentHTML('beforeend',"-" + drink.strMeasure4 + "<br>");    
-                                    } else {
-                                    
-                                    }
-                                }
-                                counter += 1
-})})}
-            
-                       
-            
-      
+                const appendDiv = document.body.insertBefore(newDiv, currentDiv);
+              
+                cardContainer.append(appendDiv);
+                newDiv.appendChild(innerDiv);
+                innerDiv.appendChild(innerDiv2);
+          }
+         
+    })
+    
+}
