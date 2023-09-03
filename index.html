@@ -12,51 +12,15 @@
 
 </head>
 <body>
-<div class="flex-container">
+    <div class="flex-container">
         <div class="welcomeBar">Search for a cocktail by name</div>
         <input id="userInput" class="searchBar">
         <button  id="searchButton" class="searchBar" onclick="getcockbyName()">Search</button>
-        <div class="cardHolder">
-                <div  id="drinkCard1" class="drinkCard">
-                    <div id="cardName1"class="cardName"></div>
-                    <div id="cardPic1" class="cardPic"></div>
-                    <div class="cardBottom">
-                        <div id="cardIngred1"class="cardIngred">
-                        </div>
-                        <div id="cardInstruct1" class="cardInstruct"></div>
-                    </div>
-                </div>
-                <div id="drinkCard2" class="drinkCard">
-                    <div id="cardName2"class="cardName"></div>
-                    <div id="cardPic2" class="cardPic"></div>
-                    <div class="cardBottom">
-                        <div id="cardIngred2"class="cardIngred"></div>
-                        <div id="cardInstruct2" class="cardInstruct"></div>
-                    </div>
-                </div>
-                <div id="drinkCard3" class="drinkCard">
-                    <div id="cardName3"class="cardName"></div>
-                    <div id="cardPic3" class="cardPic"></div>
-                    <div class="cardBottom">
-                        <div id="cardIngred3"class="cardIngred"></div>
-                        <div id="cardInstruct3" class="cardInstruct"></div>
-                    </div>
-                </div>
-                <div  id="drinkCard4" class="drinkCard">
-                    <div id="cardName4"class="cardName"></div>
-                    <div id="cardPic4" class="cardPic"></div>
-                    <div class="cardBottom">
-                        <div id="cardIngred4"class="cardIngred"></div>
-                        <div id="cardInstruct4" class="cardInstruct"></div>
-                    </div>
-                </div>
-        </div>
-    
+        <button  id="searchButton" class="searchBar" onclick="newSearch()">Clear Results</button>
+        <div id="cardContainer"></div>
 
 
-
-
-</div>
+    </div>
 <script src="app.js"></script>
 </body>
 </html>
