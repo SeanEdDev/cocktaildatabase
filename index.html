@@ -12,13 +12,17 @@ href="small-screen.css">
 <link rel="stylesheet" type="text/css"
 media="screen and (min-width: 750px) and (max-width: 2000px)"
 href="large-screen.css">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="225393752070-v2gfpoj495r44h1tsd8hi06npuijkofd.apps.googleusercontent.com">
 
 </head>
 <body>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <div class="flex-container">
         <div class="welcomeBar">Search for a cocktail by name. Click the blue tab to open.</div>
         <input id="userInput" class="searchBar">
