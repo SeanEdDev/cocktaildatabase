@@ -51,13 +51,12 @@ font-family: 'Titillium Web', sans-serif;
 
 
 .drinkCard { 
-    scale:50%;
     border-radius: 20px;
     color:white;
     display: flex;
     flex-direction: column;
-    height:fit-content;
-    width:fit-content;
+   height:fit-content;
+    width:300px;
     background-color: rgba(0, 92, 150, 0.63);
     margin:10px;
 }
@@ -100,7 +99,8 @@ font-family: 'Titillium Web', sans-serif;
 }
 
 #cardContainer {
-   
+    margin-top: 0;
+    padding-top:0;
     display: flex;
     justify-content: center;
     text-align: center;
