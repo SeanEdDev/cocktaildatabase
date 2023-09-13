@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    <meta Content-Security-Policy-Report-Only: script-src
-https://accounts.google.com/gsi/client; frame-src
-https://accounts.google.com/gsi/; connect-src
-https://accounts.google.com/gsi/; />
+    
+<head Cross-Origin-Embedder-Policy=" unsafe-none"
+>s
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +15,8 @@ href="small-screen.css">
 media="screen and (min-width: 750px) and (max-width: 2000px)"
 href="large-screen.css">
 
+   
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +26,8 @@ href="large-screen.css">
 
 </head>
 <body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div data-netlify-identity-menu></div>
+
     <div class="flex-container">
         <div class="welcomeBar">Search for a cocktail by name. Click the blue tab to open.</div>
         <input id="userInput" class="searchBar">
@@ -38,5 +38,7 @@ href="large-screen.css">
 
     </div>
 <script src="app.js"></script>
+<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 </body>
 </html>
