@@ -3,7 +3,8 @@ function newSearch(){
   location.reload();
 }
 
-
+const cors = require("cors")
+app.use(cors())
 document.addEventListener('click', (e) =>
   {
     
