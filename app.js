@@ -35,6 +35,8 @@ function onSignIn(googleUser) {
 
 
 function getcockbyName() {
+var cardContainer = document.getElementById("cardContainer");
+cardContainer.innerHTML = ""; 
 var userInput = document.getElementById("userInput").value;
 
 
